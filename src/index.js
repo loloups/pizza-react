@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { OrderFactory } from './OrderFactory'
 import { Pizza } from './pizza'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 var server = "//172.20.0.219:8080";
 class Menu extends React.Component {
@@ -37,4 +38,9 @@ class Pizzeria extends React.Component {
 	}
 }
 
-ReactDOM.render(<Pizzeria />, document.getElementById('root'));
+ReactDOM.render(
+<Router>
+	<Switch>
+		<Route path="/" component={Pizzeria}/>
+	</Switch>
+</Router>, document.getElementById('root'));
